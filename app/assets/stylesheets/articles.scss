@@ -1,3 +1,76 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.articles-container {
+  display: grid;
+  grid-template-columns: 300px 100px;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title"
+    "grid-element grid-element"
+    "create create";
+  row-gap: 20px;
+  .articles-title-element {
+    grid-area: title;
+  }
+  .articles-grid-element {
+    grid-area: grid-element;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    .article-wrapper {
+      display: flex;
+      flex-direction: row;
+      .articles-display-element {
+        background-color: lightgreen;
+        height: 100px;
+        width: 300px;
+        display: flex;
+      }
+      .articles-edit-element {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .articles-create-element {
+    grid-area: create;
+  }
+  a {
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    flex-grow: 1;
+    &:hover {
+      background-color: lightgrey;
+    }
+  }
+}
+
+.show-article-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "title title title"
+    "body body body"
+    "back edit destroy";
+  row-gap: 20px;
+  .show-article-body-element {
+    text-align: justify;
+    grid-area: body;
+  }
+  .show-article-title-element {
+    text-align: center;
+    grid-area: title;
+  }
+  .show-article-edit-element {
+    grid-area: edit;
+  }
+  .show-article-destroy-element {
+    grid-area: destroy;
+  }
+  .show-article-back-element {
+    grid-area: back;
+  }
+}

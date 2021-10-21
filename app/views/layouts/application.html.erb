@@ -13,7 +13,9 @@
   <body>
     <%= render "/layouts/header"%>
     <main>
-      <%= yield %>
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
     </main>
     <%= render "/layouts/footer"%>
   </body>
