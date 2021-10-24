@@ -27,6 +27,12 @@ header {
   background-color: lightblue;
   height: 100px;
   justify-content: flex-end;
+  .title {
+    flex-grow: 1;
+    h1 {
+      margin: 20px;
+    }
+  }
   nav {
     width: 40%;
     display: flex;
