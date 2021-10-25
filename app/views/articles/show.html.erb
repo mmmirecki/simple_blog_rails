@@ -6,19 +6,8 @@
   <div class="show-article-destroy-element"><%= link_to "Destroy", article_path(@article),
             method: :delete,
             data: { confirm: "Are you sure?" } %></div>
-  <div class="comments-container">
-    <%= form_with model: [@article, @article.comments.build] do |form| %>
-      <p>
-        <%= form.label :commenter %><br>
-        <%= form.text_field :commenter %>
-      </p>
-      <p>
-        <%= form.label :body %><br>
-        <%= form.text_area :body %>
-      </p>
-      <p>
-        <%= form.submit %>
-      </p>
-    <% end %>
-  </div>
 </section>
+<div class="comments-container">
+  <%= render @article.comments %>
+  <%= render 'comments/form' %>
+</div>
