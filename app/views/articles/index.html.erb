@@ -1,15 +1,18 @@
 <section class="articles-container">
-  <h1 class=articles-title-element>Articles, there a currently <%= Article.public_count%></h1>
+  <h1 class=articles-title-element>Articles, there are currently <%= Article.public_count%> public articles</h1>
   <div class="articles-grid-element">
     <% @articles.each do |article|%>
-      <div class="article-wrapper">
-        <div class="articles-display-element">
-          <%= link_to article.title, article%>
+      <% unless article.toggled_status?('archived') %>
+        <div class="article-wrapper">
+          <%= article.status%>
+          <div class="articles-display-element">
+            <%= link_to article.title, article%>
+          </div>
+          <div class="articles-edit-element">
+            <%=link_to "Edit", edit_article_path(article)%>
+          </div>
         </div>
-        <div class="articles-edit-element">
-          <%=link_to "Edit", edit_article_path(article)%>
-        </div>
-      </div>
+      <% end %>
     <%end%>
   </div>
   <div class="articles-create-element">

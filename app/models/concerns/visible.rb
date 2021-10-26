@@ -16,4 +16,12 @@ module Visible
     def archived?
         status == 'archived'
     end
+
+    def private?
+        status == 'private'
+    end
+
+    def toggled_status?(toggled_status)
+        status == toggled_status
+    end
 end
