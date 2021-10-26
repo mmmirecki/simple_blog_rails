@@ -1,14 +1,14 @@
-<div class="displayed-comments">
-  <% @article.comments.each do |comment|%>
-    <div class="single-comment">
-      <p>
-        <strong>Commenter:</strong>
-        <%= comment.commenter%>
-      </p>
-      <p>
-        <strong>Comment:</strong>
-        <%=comment.body%>
-      </p>
-    </div>
-  <%end%>
-</div>
+<div class="single-comment">
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter%>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%=comment.body%>
+  </p>
+  <p>
+    <%= link_to 'Destroy Comment', [comment.article, comment],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+  </p>
