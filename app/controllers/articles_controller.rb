@@ -1,6 +1,12 @@
 class ArticlesController < ApplicationController
     def index
         @articles = Article.all
+        logger.debug(params[:status])
+        if params[:status] 
+            @displayed_articles = params[:status]
+        else
+            @displayed_articles = 'all'
+        end
     end
 
     def show
