@@ -1,5 +1,5 @@
 <section class="show-article-container">
-  <h1 class="show-article-title-element"><%= @article.title%></h1>
+  <h1 class="show-article-title-element"><%= @article.title%> Category: <%=@article.category%> </h1>
   <div class="show-article-body-element"><%= @article.body%></div>
   <div class=show-article-back-element><%= link_to "Go back", articles_path%></div>
   <div classs=show-article-edit-element><%= link_to "Edit", edit_article_path(@article) %></div>

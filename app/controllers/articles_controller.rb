@@ -2,6 +2,11 @@ class ArticlesController < ApplicationController
     def index
         @articles = Article.all
         logger.debug(params[:status])
+        if params[:category]
+            @selected_category = params[:category]
+        else
+            @selected_category = 'all'
+        end
         if params[:status] 
             @displayed_articles = params[:status]
         else
@@ -50,7 +55,7 @@ class ArticlesController < ApplicationController
 
     private
         def article_params
-            params.require(:article).permit(:title,:body,:status)
+            params.require(:article).permit(:title,:body,:status,:category)
         end
 
 end

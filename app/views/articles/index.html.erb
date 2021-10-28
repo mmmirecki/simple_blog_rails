@@ -2,23 +2,25 @@
   <h1 class=articles-title-element>Articles, there are currently <%= Article.public_count%> public articles</h1>
   <div class="articles-grid-element">
     <% @articles.each do |article|%>
-      <% if article.toggled_status?(@displayed_articles) || @displayed_articles == 'all' %>
-        <div class="article-wrapper">
-          <%= article.status%>
-          <div class="articles-display-element">
-            <%= link_to article.title, article%>
-          </div>
-          <div class="articles-edit-element">
-            <%=link_to "Edit", edit_article_path(article)%>
-          </div>
+      <% if (article.toggled_status?(@displayed_articles) || @displayed_articles == 'all') && 
+      (article.selected_category?(@selected_category) || @selected_category == 'all') %>
+      <div class="article-wrapper">
+        <%= article.status%>
+        <%= article.category%>
+        <div class="articles-display-element">
+          <%= link_to article.title, article%>
         </div>
-      <% end %>
-    <%end%>
-  </div>
-  <div class="articles-create-element">
-    <%= link_to "create new article", new_article_path%>
-  </div>
-  <%= link_to 'public', articles_path(:status => 'public')%>
-  <%= link_to 'private', articles_path(:status => 'private')%>
-  <%= link_to 'archived', articles_path(:status => 'archived')%>
+        <div class="articles-edit-element">
+          <%=link_to "Edit", edit_article_path(article)%>
+        </div>
+      </div>
+    <% end %>
+  <%end%>
+</div>
+<div class="articles-create-element">
+  <%= link_to "create new article", new_article_path%>
+</div>
+<%= link_to 'public', articles_path(:status => 'public', :category => @selected_category)%>
+<%= link_to 'private', articles_path(:status => 'private', :category =>  @selected_category)%>
+<%= link_to 'archived', articles_path(:status => 'archived', :category =>  @selected_category)%>
 </section>
