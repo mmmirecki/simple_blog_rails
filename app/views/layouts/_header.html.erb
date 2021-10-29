@@ -1,17 +1,30 @@
 <header>
-    <div class="title">
-        <h1>Rails blog</h1>
+  <div class="title">
+    <h1>Rails blog</h1>
+  </div>
+  <nav>
+    <div class="nav-element">
+      <div class='nav-link'>
+        <%= link_to  root_path do%>
+          <button>main</button>
+        <%end%>
+      </div>
     </div>
-   
-    <nav>
-        <div class="nav-element">
-            <%=link_to "Main page", root_path%>
+    <div class="nav-element">
+      <div class='nav-dropdown'>
+        <button class="dropbtn">Categories</button>
+        <div class='dropdown-content'>
+          <%=link_to "Foo", root_path(:category => "foo")%>
+          <%=link_to "Bar", root_path(:category => "bar")%>
         </div>
-        <div class="nav-element">
-            <%=link_to "Main page", root_path%>
-        </div>
-        <div class="nav-element">
-            <%=link_to "Main page", root_path%>
-        </div>
-    </nav>
+      </div>
+    </div>
+    <div class="nav-element">
+      <div class='nav-link'>
+        <%= link_to  root_path do%>
+          <button>main</button>
+        <%end%>
+      </div>
+    </div>
+  </nav>
 </header>
