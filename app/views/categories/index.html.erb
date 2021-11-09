@@ -1,0 +1,27 @@
+<%#----------CATEGORIES-----------%>
+<section class="categories-container">
+  <h1>Categories</h1>
+  <% @categories.each do |category|%>
+    <div class="category">
+      <%=link_to category_path(category) do %>
+        <div><%=category.name%></div>
+      <%end%>
+    </div>
+  <%end%>
+</section>
+<%#---------SEARCH-------------%>
+<section class="search-container">
+</section>
+<%# -------PRODUCT-----------%>
+<%if false%>
+  <section  class="products-container">
+    <% @products.each do |product|%>
+      <div class="single-product">
+        <h3><%=product.title%></h3>
+        <img src=<%=product.img%> alt="kot" style="width:20%;height:20%">
+        <div><%=product.quantity%></div>
+        <div><%=product.description%></div>
+      </div>
+    <%end%>
+  </section>
+<%end%>
