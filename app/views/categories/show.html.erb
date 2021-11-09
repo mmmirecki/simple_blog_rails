@@ -1,5 +1,10 @@
 <h1><%=@category.name%> </h1>
-<% @associated_products.each do |product|%>
-  <%= link_to product.title, category_product_path(@category,product) %>
-  <%=product.inspect%>
+<% if @category.name == "all"%>
+  <%@products.each do |product|%>
+    <%= link_to product.title, category_product_path(@category,product) %><br/>
+  <%end%>
+<%else%>
+  <% @associated_products.each do |product|%>
+    <%= link_to product.title, category_product_path(@category,product) %><br/>
+  <%end%>
 <%end%>

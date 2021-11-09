@@ -23,6 +23,7 @@ end
 
 Category.delete_all
 
+Category.create(name: "all")
 Category.create(name: "basic")
 Category.create(name: "premium")
 

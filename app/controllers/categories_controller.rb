@@ -7,5 +7,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @associated_products = @category.products
+    @products = Product.all
   end
 end
